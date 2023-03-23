@@ -6,16 +6,17 @@ const router = Router();
 //Todos los productos
 router.get('/', (req,res) => {
   
-        const limit = req.query.limit;
-        const productos =   products.getProducts();
-        
-        if (limit){
-            respuesta =  productos.slice(0,limit)
-        } else {
-            respuesta = productos;
-        }
-        
-        res.send(respuesta) 
+    const limit = req.query.limit;
+    const productos =   products.getProducts();
+    
+    console.log(productos)
+    if (limit){
+        respuesta =  productos.slice(0,limit)
+    } else {
+        respuesta = productos;
+    }
+//        res.send(respuesta) 
+    res.render('index.handlebars', {respuesta} )
 });
 
 //Producto por id

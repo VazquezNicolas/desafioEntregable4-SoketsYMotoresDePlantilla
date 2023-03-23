@@ -9,14 +9,13 @@ router.get('/', (req,res) => {
         const limit = req.query.limit;
         const productos =   products.getProducts();
         
-        console.log(productos)
         if (limit){
             respuesta =  productos.slice(0,limit)
         } else {
             respuesta = productos;
         }
 //        res.send(respuesta) 
-        res.render('index.handlebars', {respuesta} )
+        res.render('realTimeProducts.handlebars', {respuesta} )
 });
 
 

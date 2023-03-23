@@ -118,7 +118,7 @@ class ProductManager {
 
     getProducts(){
         const data = JSON.parse(fs.readFileSync(this.path), "utf-8")
-        console.log(data);
+        //console.log(data);
         return data;
     }
 
