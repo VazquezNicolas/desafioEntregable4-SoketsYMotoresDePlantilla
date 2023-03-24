@@ -16,7 +16,7 @@ router.get('/', (req,res) => {
         respuesta = productos;
     }
 //        res.send(respuesta) 
-    res.render('index.handlebars', {respuesta} )
+    res.render('home.handlebars', {respuesta} )
 });
 
 //Producto por id

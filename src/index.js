@@ -20,7 +20,7 @@ app.set('views engine', 'handlebars')
 //Rutas
 app.use('/api/products', productsRouter);
 app.use('/api/carts',cartsRouter);
-app.use('/api/realTimeProducts',realTimeProductsRouter);
+app.use('/api/realtimeproducts',realTimeProductsRouter);
 
 
 const httpServer = app.listen(port, () => {
@@ -31,6 +31,12 @@ const io = new Server (httpServer)
 
 io.on('connection', socket => {
     console.log('Cliente conectado')
+    io.emit('mensajeServidor', 'Hola desde servidor')
+
     
-    io.emmit('mensajeServidor', 'Hola desde servidor')
+    socket.on('agregarProducto', product => {
+        //almacenar producto
+        
+        io.emit('actualizacionLista', {product, status: 1})
+    })
 })
